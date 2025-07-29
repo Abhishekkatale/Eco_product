@@ -2,7 +2,7 @@
 
 ## Overview
 
-GreenCart is a full-stack web application built as an eco-friendly e-commerce platform showcasing sustainable products. The application features a modern React frontend with Express.js backend, designed to promote and sell environmentally conscious products with a focus on sustainability metrics and user education.
+GreenCart is a complete single-page React application built as an eco-friendly product finder platform showcasing sustainable products. The application features a modern, responsive frontend with beautiful eco-conscious design, interactive filtering, search functionality, and multiple content pages including Products, About, and Contact sections.
 
 ## User Preferences
 
@@ -40,17 +40,23 @@ The server-side follows a modular Express.js structure:
 
 ### Frontend Components
 1. **Layout Components**:
-   - Navbar with search functionality and eco-friendly branding
-   - Hero section highlighting sustainability features
-   - Footer with company information and social links
+   - Navbar with active page highlighting and responsive mobile menu
+   - Hero sections for each page with eco-friendly branding
+   - Footer with company information and newsletter signup
 
 2. **Product Components**:
    - FilterBar for categorizing products (reusable, organic, plastic-free)
    - ProductCard displaying sustainability scores and ratings
-   - Product grid with responsive design
+   - Product grid with sorting and view mode options (grid/list)
 
-3. **UI Components**:
-   - Complete shadcn/ui component library
+3. **Page Components**:
+   - Home: Hero section, product filtering, and stats showcase
+   - Products: Complete product catalog with advanced sorting
+   - About: Company mission, team profiles, and sustainability journey
+   - Contact: Contact form, company information, and FAQ section
+
+4. **UI Components**:
+   - Complete shadcn/ui component library (Select, Textarea, Form components)
    - Custom eco-themed design tokens and colors
    - Responsive design with mobile-first approach
 
@@ -66,10 +72,11 @@ The server-side follows a modular Express.js structure:
 
 ## Data Flow
 
-1. **Product Display**: Static product data (JSON) → React components → Filtered/searched results
-2. **User Interaction**: Search/filter actions → State updates → Re-rendered product grid
-3. **External Links**: Product purchases redirect to external e-commerce platforms
-4. **API Communication**: TanStack Query handles all server communication with automatic caching
+1. **Product Display**: Static product data (JSON) → React components → Filtered/searched/sorted results
+2. **User Interaction**: Search/filter/sort actions → State updates → Re-rendered product grid
+3. **Navigation**: Wouter routing handles client-side navigation between pages
+4. **External Links**: Product purchases redirect to external e-commerce platforms
+5. **Form Handling**: Contact form with validation using React Hook Form and Zod schemas
 
 ## External Dependencies
 
