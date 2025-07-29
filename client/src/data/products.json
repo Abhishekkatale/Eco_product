@@ -1,0 +1,100 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Stainless Steel Water Bottle",
+      "description": "BPA-free, insulated design keeps drinks cold for 24hrs",
+      "price": 24.99,
+      "rating": 4.5,
+      "sustainabilityScore": 95,
+      "category": "reusable",
+      "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Reusable", "BPA-Free"],
+      "link": "https://example.com/water-bottle"
+    },
+    {
+      "id": 2,
+      "name": "Organic Cotton Tote Bag",
+      "description": "GOTS certified organic cotton, perfect for grocery shopping",
+      "price": 18.99,
+      "rating": 5.0,
+      "sustainabilityScore": 98,
+      "category": "organic",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Organic", "Reusable"],
+      "link": "https://example.com/tote-bag"
+    },
+    {
+      "id": 3,
+      "name": "Bamboo Toothbrush Set",
+      "description": "Pack of 4 biodegradable bamboo toothbrushes",
+      "price": 16.99,
+      "rating": 4.2,
+      "sustainabilityScore": 92,
+      "category": "plastic-free",
+      "image": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Plastic-Free", "Biodegradable"],
+      "link": "https://example.com/bamboo-toothbrush"
+    },
+    {
+      "id": 4,
+      "name": "Solar Power Bank",
+      "description": "20,000mAh capacity with solar charging capability",
+      "price": 49.99,
+      "rating": 4.8,
+      "sustainabilityScore": 90,
+      "category": "reusable",
+      "image": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Reusable", "Solar"],
+      "link": "https://example.com/solar-power-bank"
+    },
+    {
+      "id": 5,
+      "name": "Organic Soap Bar Set",
+      "description": "Handmade with organic oils and natural fragrances",
+      "price": 22.99,
+      "rating": 4.6,
+      "sustainabilityScore": 96,
+      "category": "organic",
+      "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Organic", "Plastic-Free"],
+      "link": "https://example.com/soap-bars"
+    },
+    {
+      "id": 6,
+      "name": "Beeswax Food Wraps",
+      "description": "Set of 3 reusable wraps, plastic-free food storage",
+      "price": 19.99,
+      "rating": 4.9,
+      "sustainabilityScore": 94,
+      "category": "reusable",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Reusable", "Plastic-Free"],
+      "link": "https://example.com/beeswax-wraps"
+    },
+    {
+      "id": 7,
+      "name": "Compostable Phone Case",
+      "description": "Made from wheat straw, fully biodegradable",
+      "price": 29.99,
+      "rating": 4.3,
+      "sustainabilityScore": 88,
+      "category": "plastic-free",
+      "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Plastic-Free", "Compostable"],
+      "link": "https://example.com/phone-case"
+    },
+    {
+      "id": 8,
+      "name": "Organic Cotton Bed Sheets",
+      "description": "Luxurious GOTS certified organic cotton sheets",
+      "price": 89.99,
+      "rating": 4.7,
+      "sustainabilityScore": 97,
+      "category": "organic",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      "tags": ["Organic", "Natural"],
+      "link": "https://example.com/bed-sheets"
+    }
+  ]
+}
