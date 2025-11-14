@@ -54,7 +54,7 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["123 Green Street", "Eco City, EC 12345", "United States"],
+      details: ["PDEACOEM", "Eco City, EC 12345", "United States"],
       color: "text-primary"
     },
     {

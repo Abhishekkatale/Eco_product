@@ -21,7 +21,7 @@ export default function FilterBar({ activeFilter, onFilterChange, resultCount }:
         <div>
           <h2 className="text-3xl font-bold text-eco-text mb-2">Sustainable Products</h2>
           <p className="text-gray-600">
-            Discover our curated collection of eco-friendly items ({resultCount} products)
+            Discover our curated collection of eco-friendly items
           </p>
         </div>
         

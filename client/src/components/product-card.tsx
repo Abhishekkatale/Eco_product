@@ -1,4 +1,4 @@
-import { Star, ShoppingCart, ExternalLink, Heart, Plus } from "lucide-react";
+import { Star, ShoppingCart, ExternalLink, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,143 +16,93 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { toast } = useToast();
 
   const renderStars = (rating: number) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <Star
-          key={i}
-          className={`h-4 w-4 ${
-            i <= rating ? "text-accent fill-current" : "text-gray-300"
-          }`}
-        />
-      );
-    }
-    return stars;
-  };
-
-  const handleBuyNow = () => {
-    window.open(product.link, '_blank', 'noopener,noreferrer');
+    return Array.from({ length: 5 }, (_, i) => (
+      <Star
+        key={i}
+        className={`h-4 w-4 ${
+          i < rating ? "text-yellow-500 fill-current" : "text-gray-300"
+        }`}
+      />
+    ));
   };
 
   const handleAddToCart = async () => {
     setIsAddingToCart(true);
-    
-    // Simulate adding to cart
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
+    await new Promise((resolve) => setTimeout(resolve, 500));
     toast({
       title: "Added to cart!",
       description: `${product.name} has been added to your cart.`,
     });
-    
     setIsAddingToCart(false);
+  };
+
+  const handleBuyNow = () => {
+    window.open(product.link, "_blank", "noopener,noreferrer");
   };
 
   const handleLike = () => {
     setIsLiked(!isLiked);
     toast({
       title: isLiked ? "Removed from wishlist" : "Added to wishlist",
-      description: isLiked ? "Item removed from your wishlist" : "Item saved to your wishlist",
+      description: isLiked ? "Removed from your wishlist" : "Saved to wishlist",
     });
   };
 
   return (
-    <Card className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden product-card-hover animate-fade-in group border-0">
-      <div className="relative overflow-hidden">
+    <Card className="rounded-xl overflow-hidden shadow hover:shadow-lg transition-all bg-white border border-gray-100">
+      <div className="relative">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
-          loading="lazy"
+          className="w-full h-52 object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        {/* Top badges and heart */}
-        <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-          <Badge className="bg-eco-success text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-lg">
-            🌱 {product.sustainabilityScore}%
-          </Badge>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleLike}
-            className={`rounded-full p-2 shadow-lg transition-all duration-200 ${
-              isLiked 
-                ? 'bg-red-500 text-white hover:bg-red-600' 
-                : 'bg-white/90 text-gray-600 hover:bg-white hover:text-red-500'
-            }`}
-          >
-            <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
-          </Button>
-        </div>
-
-        {/* Quick add to cart overlay */}
-        <div className="absolute inset-x-4 bottom-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-          <Button 
-            onClick={handleAddToCart}
-            disabled={isAddingToCart}
-            className="w-full bg-primary text-primary-foreground hover:bg-secondary transition-colors shadow-lg backdrop-blur-sm"
-          >
-            {isAddingToCart ? (
-              <>
-                <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2" />
-                Adding...
-              </>
-            ) : (
-              <>
-                <Plus className="mr-2 h-4 w-4" />
-                Quick Add to Cart
-              </>
-            )}
-          </Button>
-        </div>
+        <Button
+          onClick={handleLike}
+          size="icon"
+          variant="ghost"
+          className="absolute top-2 right-2 rounded-full bg-white/90 text-red-500 shadow-sm"
+        >
+          <Heart className={`h-4 w-4 ${isLiked ? "fill-current" : ""}`} />
+        </Button>
       </div>
-      
-      <CardContent className="p-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-1">
-            {renderStars(product.rating)}
-            <span className="text-sm text-gray-600 ml-2 font-medium">({product.rating})</span>
-          </div>
-          <span className="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded-full capitalize">
-            {product.category.replace('-', ' ')}
+
+      <CardContent className="p-4 space-y-2">
+        <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center gap-1">{renderStars(product.rating)}</div>
+          <span className="bg-gray-100 px-2 py-0.5 rounded-full text-xs capitalize">
+            {product.category}
           </span>
         </div>
-        
-        <div>
-          <h3 className="text-xl font-bold text-eco-text mb-2 line-clamp-1">{product.name}</h3>
-          <p className="text-gray-600 text-sm line-clamp-2 leading-relaxed">{product.description}</p>
-        </div>
-        
-        <div className="flex flex-wrap gap-2">
-          {product.tags.slice(0, 3).map((tag, index) => (
-            <Badge
-              key={index}
-              variant="secondary"
-              className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs border border-green-200"
-            >
+
+        <h3 className="text-lg font-semibold text-gray-900 line-clamp-1">{product.name}</h3>
+        <p className="text-sm text-gray-600 line-clamp-2">{product.description}</p>
+
+        <div className="flex flex-wrap gap-1">
+          {product.tags.slice(0, 2).map((tag, index) => (
+            <Badge key={index} className="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full border border-green-200">
               {tag}
             </Badge>
           ))}
-          {product.tags.length > 3 && (
-            <Badge variant="secondary" className="bg-gray-50 text-gray-600 px-3 py-1 rounded-full text-xs">
-              +{product.tags.length - 3} more
+          {product.tags.length > 2 && (
+            <Badge className="bg-gray-50 text-gray-600 text-xs px-2 py-1 rounded-full border">
+              +{product.tags.length - 2} more
             </Badge>
           )}
         </div>
 
-        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-          <div className="flex flex-col">
-            <span className="text-2xl font-bold text-primary">${product.price}</span>
-            <span className="text-xs text-gray-500">Free eco shipping</span>
+        <div className="flex items-center justify-between pt-2">
+          <div>
+            <p className="text-xl font-bold text-primary">₹{product.price}</p>
+            <p className="text-xs text-gray-500">Eco shipping included</p>
           </div>
+
           <div className="flex gap-2">
-            <Button 
+            <Button
               onClick={handleAddToCart}
-              disabled={isAddingToCart}
+              size="icon"
               variant="outline"
-              size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-white transition-colors"
+              className="border-primary text-primary hover:bg-primary hover:text-white"
+              disabled={isAddingToCart}
             >
               {isAddingToCart ? (
                 <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary border-t-transparent" />
@@ -160,13 +110,12 @@ export default function ProductCard({ product }: ProductCardProps) {
                 <ShoppingCart className="h-4 w-4" />
               )}
             </Button>
-            <Button 
+            <Button
               onClick={handleBuyNow}
-              size="sm"
-              className="bg-primary text-primary-foreground hover:bg-secondary transition-colors"
+              size="icon"
+              className="bg-primary text-white hover:bg-secondary"
             >
-              Buy Now
-              <ExternalLink className="ml-2 h-3 w-3" />
+              <ExternalLink className="h-4 w-4" />
             </Button>
           </div>
         </div>
